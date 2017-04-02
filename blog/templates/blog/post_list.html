@@ -8,6 +8,18 @@
       <h1><a href="">Diango Girls Blog</a></h1>
     </div>
 
+    {% for post in posts %}
+      <div>
+        <h2><a href="">{{post.title}}</a></h2>
+        <p>published: {{post.published_date}}</p>
+        <p>{{ post.text | linebreaksbr }}</p>
+      </div>
+    {% endfor %}
+
+
+    <!-- Codice python che stampa il numero di post
+    {{posts}}
+
     <div>
       <p>pubblished: 2.04.2017, 12:20</p>
       <h2><a href="">Chris Hillman</a></h2>
@@ -23,5 +35,6 @@
         di un gruppo di ebrei provenienti da Gerico, che nel 68 d.C. arrivò nel
         territorio e fondò la città.</p>
     </div>
+    -->
   </body>
 </html>
