@@ -1,40 +1,13 @@
-<html>
-  <head>
-    <title> Django Girls blog</title>
-  </head>
-  <body>
+{% extends 'blog/base.html' %}
 
-    <div>
-      <h1><a href="">Diango Girls Blog</a></h1>
-    </div>
-
-    {% for post in posts %}
-      <div>
-        <h2><a href="">{{post.title}}</a></h2>
-        <p>published: {{post.published_date}}</p>
-        <p>{{ post.text | linebreaksbr }}</p>
+{% block content %}
+  {% for post in posts %}
+      <div class="post">
+          <div class="date">
+            <p>published: {{post.published_date}}</p>
+          </div>
+          <h2><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h2>
+          <p>{{ post.text | linebreaksbr }}</p>
       </div>
-    {% endfor %}
-
-
-    <!-- Codice python che stampa il numero di post
-    {{posts}}
-
-    <div>
-      <p>pubblished: 2.04.2017, 12:20</p>
-      <h2><a href="">Chris Hillman</a></h2>
-      <p>È conosciuto per essere una figura chiave nella nascita del country rock, fu membro della
-        formazione originale dei The Byrds, collaboratore con Gram Parsons nonché fondatore dei
-        Flying Burrito Brothers.</p>
-    </div>
-
-    <div>
-      <p>pubblished: 2.04.2017, 12:23</p>
-      <h2><a href="">Lunel</a></h2>
-      <p>Lunel, sorgeva in un territorio di origine paludosa. La leggenda narra
-        di un gruppo di ebrei provenienti da Gerico, che nel 68 d.C. arrivò nel
-        territorio e fondò la città.</p>
-    </div>
-    -->
-  </body>
-</html>
+  {% endfor %}
+{% endblock content %}
